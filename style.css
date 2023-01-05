@@ -31,16 +31,24 @@ h1, p {
 	min-inline-size: 50%;
   }
 
-  #ohHai {
+  /* #ohHai {
 	justify-content: center;
-  }
+  } */
 
   #selfImg {
 	width: 100%;
   }
 
-  .fakeBoxes {
+  .assignments {
 	height: 200px;
+  }
+
+  .comingSoonBox {
+	color:#393939;
+	background: #FFFFFF;
+	display: flex;
+	justify-content: center;
+	align-items: center;
   }
   
   
