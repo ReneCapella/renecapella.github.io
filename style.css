@@ -49,8 +49,8 @@ h1, p {
 	justify-content: center;
 	align-items: center;
   }
-
-  #assignment1Img{
+/* assignment 0 */
+  #assignment0Img{
 	width:100%;
 	border: 3px solid #393939;
 	border-radius: 25px;
