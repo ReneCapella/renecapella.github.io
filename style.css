@@ -8,6 +8,7 @@ h1, p {
 }
 
 .with-sidebar {
+	padding: .9em;
 	display: flex;
 	/* gap: 1rem; */
   }
@@ -21,6 +22,7 @@ h1, p {
   }
   
   .not-sidebar {
+	padding: .9em;
 	color: #393939;
 	/* ↓ Grow from nothing */
 	flex-basis: 0;
