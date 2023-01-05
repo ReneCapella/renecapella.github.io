@@ -40,9 +40,6 @@ h1, p {
 	width: 100%;
   }
 
-  .assignments {
-  }
-
   .comingSoonBox {
 	padding: 3em;
 	width: 100%;
@@ -51,10 +48,6 @@ h1, p {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  }
-
-  #assignment1{
-	border-color: ;
   }
 
   #assignment1Img{
