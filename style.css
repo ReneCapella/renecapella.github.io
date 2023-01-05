@@ -1,5 +1,5 @@
 body {
-  background: #393939;
+  background: #A9A9A9;
   display:flex;
 }
 
@@ -14,12 +14,14 @@ h1, p {
   }
   
   .sidebar {
+	background: #393939;
 	/* ↓ The width when the sidebar _is_ a sidebar */
 	flex-basis: 20rem;
 	flex-grow: 1;
   }
   
   .not-sidebar {
+	background:#595959;
 	/* ↓ Grow from nothing */
 	flex-basis: 0;
 	flex-grow: 999;
@@ -33,6 +35,10 @@ h1, p {
 
   #selfImg {
 	width: 100%;
+  }
+
+  .fakeBoxes {
+	height: 200px;
   }
   
   
