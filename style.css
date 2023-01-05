@@ -9,7 +9,7 @@ h1, p {
 
 .with-sidebar {
 	display: flex;
-	gap: 1rem;
+	/* gap: 1rem; */
   }
   
   .sidebar {
