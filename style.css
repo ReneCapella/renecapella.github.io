@@ -1,5 +1,6 @@
 body {
   background: #393939;
+  display:flex;
 }
 
 h1, p {
