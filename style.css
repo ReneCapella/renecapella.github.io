@@ -53,5 +53,15 @@ h1, p {
 	justify-content: center;
 	align-items: center;
   }
-  
-  
+
+  #assignment1{
+	border-color: ;
+  }
+
+  #assignment1Img{
+	margin-bottom: 15em;
+	width:100%;
+	border: 3px solid #393939;
+	border-radius: 25px;
+	box-shadow: 5px 5px #454545;
+  }
