@@ -16,7 +16,7 @@ h1, p {
   .sidebar {
 	color: #ffffff;
 	background: #393939;
-	/* ↓ The width when the sidebar _is_ a sidebar */
+	↓ The width when the sidebar _is_ a sidebar
 	flex-basis: 20rem;
 	flex-grow: 1;
   }
@@ -24,7 +24,7 @@ h1, p {
   .not-sidebar {
 	padding: .9em;
 	color: #393939;
-	/* ↓ Grow from nothing */
+	↓ Grow from nothing
 	flex-basis: 0;
 	flex-grow: 999;
 	/* ↓ Wrap when the elements are of equal width */
