@@ -10,7 +10,6 @@ h1, p {
 
 .with-sidebar {
 	display: flex;
-	flex-wrap: wrap;
 	gap: 1rem;
   }
   
@@ -33,7 +32,7 @@ h1, p {
   }
 
   #selfImg {
-	width: 100px;
+	width: 100%;
   }
   
   
