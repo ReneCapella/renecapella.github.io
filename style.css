@@ -12,29 +12,26 @@ h1, p {
 .with-sidebar {
 	display: flex;
 	gap: 1rem;
-	height: 100vh;
   }
   
   .sidebar {
+	position: fixed; /* Make the sidebar immovable*/
+	z-index: 1; /* Side bar stays at the top */
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
 	padding: .9em;
 	color: #ffffff;
 	background: #393939;
-	/* ↓ The width when the sidebar _is_ a sidebar */
-	flex-basis: 20rem;
-	/* flex-grow: 1;  */
-	position: -webkit-sticky;
-  	position: sticky;
-  	top: 0;
+	width: 25vh;
+	height: 100vh;
+	overflow: auto;
   }
   
-  .not-sidebar {
+  #not-sidebar {
 	padding: .9em;
+	margin-left: 30vh;
 	color: #393939;
-	/* ↓ Grow from nothing */
-	flex-basis: 0;
-	flex-grow: 999;
-	/* ↓ Wrap when the elements are of equal width */
-	min-inline-size: 50%;
   }
 
  
