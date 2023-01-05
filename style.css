@@ -1,10 +1,9 @@
 body {
-  background: #A9A9A9;
+  background: #a1a1a1;
   display:flex;
 }
 
 h1, p {
-  color: #FFFFFF;
   letter-spacing: 0.1em;
 }
 
@@ -14,6 +13,7 @@ h1, p {
   }
   
   .sidebar {
+	color: #ffffff;
 	background: #393939;
 	/* ↓ The width when the sidebar _is_ a sidebar */
 	flex-basis: 20rem;
@@ -21,7 +21,7 @@ h1, p {
   }
   
   .not-sidebar {
-	background:#595959;
+	color: #393939;
 	/* ↓ Grow from nothing */
 	flex-basis: 0;
 	flex-grow: 999;
