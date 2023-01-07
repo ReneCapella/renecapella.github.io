@@ -51,6 +51,7 @@ h1, p {
   }
 /* assignment 0 */
   #assignment0Img{
+	margin-top:1.5em;
 	width:100%;
 	border: 3px solid #393939;
 	border-radius: 25px;
