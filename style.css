@@ -1,7 +1,7 @@
 body {
   padding: 0;
   margin: 0;
-  background: #a1a1a1;
+  background: #d4f1fc;
   display:flex;
 }
 
@@ -22,7 +22,7 @@ h1, p {
 	overflow-x: hidden;
 	padding: .9em;
 	color: #ffffff;
-	background: #393939;
+	background: #142123;
 	width: 25vh;
 	height: 100vh;
 	overflow: auto;
@@ -31,29 +31,74 @@ h1, p {
   #not-sidebar {
 	padding: .9em;
 	margin-left: 30vh;
-	color: #393939;
+	color: #142123;
   }
-
- 
 
   #selfImg {
 	width: 100%;
+	border-radius: 25px;
   }
 
   .comingSoonBox {
 	padding: 3em;
 	width: 100%;
-	color:#393939;
+	color:#142123;
 	background: #FFFFFF;
 	display: flex;
 	justify-content: center;
 	align-items: center;
   }
+.assignmentsAll {
+	width:90%;
+}
+
+.videos {
+	border-radius: 25px;
+}
+
 /* assignment 0 */
   #assignment0Img{
 	margin-top:1.5em;
 	width:100%;
-	border: 3px solid #393939;
+	border: 3px solid #142123;
 	border-radius: 25px;
 	box-shadow: 5px 5px #454545;
   }
+
+  /*  assignment 1 */
+  #firmware {
+	width: 29em;
+  }
+
+  code {
+	color:#9fe2fc;
+  }
+
+  pre {
+	background: #142123;
+	border: 3px solid #142123;
+	border-radius: 25px;
+	box-shadow: 5px 5px #454545;
+	padding: 20px;
+  }
+
+  .assignmentImgOuter{
+	display: flex;
+	width: 29em;
+	border: 3px solid #142123;
+	border-radius: 25px;
+	box-shadow: 5px 5px #454545;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 20px;
+	
+  }
+
+  #assignment1ImgInner{
+	margin-top:1.5em;
+	width:300px;
+	border-radius: 25px;
+	padding-bottom: 10px
+  }
+
+

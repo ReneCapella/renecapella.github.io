@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello, HCDE439</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="favicon.png">
+  </head>
+  <body class="with-sidebar">
+		<div class="sidebar">
+			<h1 id="ohHai">Blink!</h1>
+			<div id=""></div>
+			<video class="videos" controls="controls" width="100%" height="auto" name="Video Name" autoplay>
+                <source src="IMG_5602.mp4" type="video/mp4">
+            </video>
+			<p id="paragraph1">
+				This assignment explored working with pins, Ohm's law, light-emitting 
+                diodes, and voltage drop.
+			</p>
+
+            <h2>
+                Struggles
+            </h2>
+	
+			<p class="paragraph2">
+				Remebering to add voltage drop was a fun way to screw up.
+			</p>
+
+            <h2>
+                Wins
+            </h2>
+	
+			<p class="paragraph2">
+				Schematics aren't as awful or confusing thanks to lecture. ALSO,
+                I read up on electricity at the atomic level and it's all making more sense now.
+			</p>
+		</div>
+		
+	  
+	  <div id="not-sidebar">
+		<div class="assignmentsAll" id="assignment">
+			<h3>Assignment 1</h3>
+            <div class="assignmentImgOuter">
+                <h3>Schematic</h3>
+                <img id="assignment1ImgInner" src="IMG_5634.png" >
+            </div>
+            <div class="assignmentImgOuter">
+                <h3>Circuit Image</h3>
+                <img id="assignment1ImgInner" src="IMG_5603.png" >
+            </div>
+            <div id="firmware" class="assignmentImgOuter">
+                <h3>Firmware</h3>
+                <pre>
+                    <code>
+//set up once
+void setup() {
+    //initalization of pins 9, 10, & 11
+    for (int pin = 9; i < 12; pin++){
+        //sets pin to output
+        pinMode(pin, OUTPUT);
+    }
+}
+
+//loop forever
+void loop() {
+    //loop through pins 9, 10, & 11
+    for (int pin = 9; pin < 12; pin++){
+        //turn on the LED
+        digitalWrite(pin, HIGH);
+        //keep the LED on for one second
+        delay(1000);
+        //turn the LED off
+        digitalWrite(pin, LOW);
+        //keep the LED off for one second
+        delay(1000);
+    }
+}
+                    </code>
+                  </pre>
+            </div>
+            <div>
+                <h3>Circuit Operational!</h3>
+            </div>
+		</div>	
+	  </div>
+  </body>
+</html>
+
