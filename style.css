@@ -23,15 +23,16 @@ h1, p {
 	padding: .9em;
 	color: #ffffff;
 	background: #142123;
-	width: 25vh;
+	width: 30vh;
 	height: 100vh;
 	overflow: auto;
   }
   
   #not-sidebar {
 	padding: .9em;
-	margin-left: 30vh;
+	margin-left: 35vh;
 	color: #142123;
+	width: 70%
   }
 
   #selfImg {
@@ -48,9 +49,7 @@ h1, p {
 	justify-content: center;
 	align-items: center;
   }
-.assignmentsAll {
-	width:90%;
-}
+
 
 .videos {
 	border-radius: 25px;
@@ -66,9 +65,7 @@ h1, p {
   }
 
   /*  assignment 1 */
-  #firmware {
-	width: 29em;
-  }
+  
 
   code {
 	color:#9fe2fc;
@@ -84,14 +81,13 @@ h1, p {
 
   .assignmentImgOuter{
 	display: flex;
-	width: 29em;
+	width: 100%;
 	border: 3px solid #142123;
 	border-radius: 25px;
 	box-shadow: 5px 5px #454545;
 	align-items: center;
 	flex-direction: column;
 	margin-bottom: 20px;
-	
   }
 
   #assignment1ImgInner{
