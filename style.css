@@ -9,6 +9,11 @@ h1, p {
   letter-spacing: 0.1em;
 }
 
+a {
+	color: #e1f0ff;
+	margin: 30px;
+}
+
 .with-sidebar {
 	display: flex;
 	gap: 1rem;
@@ -53,6 +58,7 @@ h1, p {
 
 .videos {
 	border-radius: 25px;
+	margin-top: 10px;
 }
 
 /* assignment 0 */
