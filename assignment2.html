@@ -19,21 +19,22 @@
                 Summary
             </h2>
 			<p id="paragraph1">
-
+                This assignment explored working with analogWrite, digitalWrite, analogRead, and didgitalRead
+				with LEDs and and a button!!
 			</p>
 
             <h2>
                 Struggles
             </h2>
 			<p class="paragraph2">
-
+                I feel as thought I plan from board to schematic, and I'm excited to learn how to go from schematic to board.
 			</p>
 
             <h2>
                 Wins
             </h2>
 			<p class="paragraph3">
-		
+                I planned this out very carefully and then took incremenatl steps with the code.
 			</p>
 		</div>
 		
@@ -51,8 +52,14 @@
             </div>
             
             <div class="assignmentOuterImages">
-                <h3>Circuit Image</h3>
-                <img id="assignmentInnerImages" src="assets/A2/circuit.png" alt="This image is of the circuit
+                <h3>Circuit Image, Side</h3>
+                <img id="assignmentInnerImages" src="assets/A2/circuit1.png" alt="This image is of the circuit
+                " >
+                <p style="font-size: 12px;">
+                    This image is of the circuit..
+                </p>
+                <h3>Circuit Image, Arial</h3>
+                <img id="assignmentInnerImages" src="assets/A2/circuit2.png" alt="This image is of the circuit
                 " >
                 <p style="font-size: 12px;">
                     This image is of the circuit..
@@ -63,6 +70,109 @@
                 <h3>Firmware</h3>
                 <pre>
                   <code>
+<span class="comment">/*
+This circuit is an execise to learn how to use analogWrite, 
+analogRead, digialWrite, and digitalRead
+with 3 LEDs and one RGB LED
+
+created 1 Nov 2008
+by David A. Mellis
+modified 19 Jan 2023
+by René Capella
+*/</span>
+<span class="comment">//original pin that feeds the circuit</span>  
+int ledPin = 6;
+<span class="comment">// the R in RGB diode set to off</span> 
+int red = 0;
+<span class="comment">// the G in RGB diode set to off</span> 
+int green = 0;
+<span class="comment">// the B in RGB diode set to off</span> 
+int blue = 0;
+
+<span class="comment">// the setup routine runs once when you press reset:</span>
+void setup() {
+    <span class="comment">//set pin 2 to INPUT </span>
+    pinMode(2, INPUT);
+    <span class="comment">//set pin A0 to INPUT </span>
+    pinMode(A0, INPUT);
+    <span class="comment">//set pin 4 to output</span>
+    pinMode(4, OUTPUT);
+    <span class="comment">//seed randomSeed with noise from pin 0</span>
+    randomSeed(analogRead(0));
+}
+
+// forever or until power is cut off..</span>
+void loop() {
+    <span class="comment">//increment in 5 integer values from 0 to 255...</span>
+    for (int fade = 0; fade <= 255; fade += 5) {
+
+    <span class="comment">//turn off that flickering white LED fed by pin 4</span>
+    digitalWrite(4, LOW);
+
+    <span class="comment">//set the blue LEDs fed by twoBlueLED to a value </span>
+    between 0 and 250
+    analogWrite(ledPin, fade);
+
+    <span class="comment">//if pin 2 detects power</span>
+    if (digitalRead(2) == 1) {
+        <span class="comment">//assign a random value to red</span>
+        red = random(255);
+        <span class="comment">//change the R in RGB to the red value</span>
+        analogWrite(9, red);
+        <span class="comment">//assign a random value to green</span>
+        green = random(255);
+        <span class="comment">//change the G in RGB to the green value</span>
+        analogWrite(10, green);
+        <span class="comment">//assign a random value to blue</span>
+        blue = random(255);
+        <span class="comment">//change the B in RGB to the blue value</span>
+        analogWrite(11, blue);
+        <span class="comment">//OTHERWISE... if pin 2 doesn't read 1</span>
+    } else {
+        <span class="comment">//turn the red off</span>
+        analogWrite(9, 0);
+        <span class="comment">//turn the green off</span>
+        analogWrite(10, 0);
+        <span class="comment">//turn the blue off</span>
+        analogWrite(11, 0);      
+    }
+
+    <span class="comment">// wait for 80 milliseconds so we can see 
+    how nice it is</span>
+    delay(80);
+    }
+
+    <span class="comment">// fade out from max to min in increments 
+    of 5 points:</span>
+    for (int fade = 255; fade >= 0; fade -= 5) {
+
+    <span class="comment">//while fading out..
+    //turn off red</span>
+    analogWrite(9, 0);
+    <span class="comment">//turn off green</span>
+    analogWrite(10, 0);
+    <span class="comment">//turn off blue</span>
+    analogWrite(11, 0);
+
+    <span class="comment">//set the blue LEDs fed by twoBlueLED to a 
+    value between 0 and 250</span>
+    analogWrite(ledPin, fade);
+
+    <span class="comment">//while we fade out, let's flicker a white LED
+    //if button is pressed and input at pin 2 reads 1</span>
+    if (digitalRead(2) == 1) {
+        <span class="comment">// turn on pin 4</span>
+        digitalWrite(4, HIGH);
+        <span class="comment">//but if it *doesn;t* read 1...</span>
+    } else {
+        <span class="comment">//then turn that pin 4 LED off</span>
+        digitalWrite(4, LOW);
+    }    
+
+    <span class="comment">// wait for 80 milliseconds so we can go slower</span>
+    delay(80);
+    }
+}  
 
                   </code>
                 </pre>
