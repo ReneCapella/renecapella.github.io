@@ -94,6 +94,7 @@ a {
 	align-items: center;
 	flex-direction: column;
 	margin-bottom: 20px;
+	padding: 5px;
   }
 
   #assignment1ImgInner{
