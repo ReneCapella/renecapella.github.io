@@ -61,7 +61,7 @@ a {
 	margin-top: 10px;
 }
 
-/* assignment 0 */
+/* assignment */
   #assignment0Img{
 	margin-top:1.5em;
 	width:100%;
@@ -69,9 +69,6 @@ a {
 	border-radius: 25px;
 	box-shadow: 5px 5px #454545;
   }
-
-  /*  assignment 1 */
-  
 
   code {
 	color:#9fe2fc;
@@ -85,7 +82,7 @@ a {
 	padding: 20px;
   }
 
-  .assignmentImgOuter{
+  .assignmentOuterImages{
 	display: flex;
 	width: 100%;
 	border: 3px solid #142123;
@@ -97,7 +94,7 @@ a {
 	padding: 5px;
   }
 
-  #assignment1ImgInner{
+  #assignmentInnerImages{
 	margin-top:1.5em;
 	width:300px;
 	border-radius: 25px;

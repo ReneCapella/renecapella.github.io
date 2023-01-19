@@ -13,42 +13,37 @@
 			<h1 id="ohHai">Blink!</h1>
 			<div id=""></div>
 			<video class="videos" controls autoplay muted width="100%" height="auto" name="operational circuit" >
-                <source src="assets/A1/video.mp4" type="video/mp4">
+                <source src="assets/A3/video.mp4" type="video/mp4">
             </video>
             <h2>
                 Summary
             </h2>
 			<p id="paragraph1">
-				This assignment explored working with pins, Ohm's law, light-emitting 
-                diodes, and voltage drop.
+
 			</p>
 
             <h2>
                 Struggles
             </h2>
-	
 			<p class="paragraph2">
-				Remebering to add voltage drop was a fun way to screw up.
+
 			</p>
 
             <h2>
                 Wins
             </h2>
-	
-			<p class="paragraph2">
-				Schematics aren't as awful or confusing thanks to lecture. ALSO,
-                I read up on electricity at the atomic level and it's all making more sense now.
+			<p class="paragraph3">
+		
 			</p>
 		</div>
 		
 	  
 	  <div id="not-sidebar">
 		<div class="assignmentsAll" id="assignment">
-			<h3>Assignment 1</h3>
+			<h3>Assignment 3</h3>
             <div class="assignmentOuterImages">
                 <h3>Schematic</h3>
-                <img id="assignmentInnerImages" src="assets/A1/schematic.png" alt="This image is a drawing (schematic) of the three LEDs attached to three pins
-                so that each LED can be operated independently." >
+                <img id="assignmentInnerImages" src="assets/A3/schematic.png" alt="This image is a drawing (schematic) of the circuit" >
                 <p style="font-size: 12px;">
                     This image above is a drawing (schematic) of the three LEDs attached to three pins
                     so that each LED can be operated independently.
@@ -57,45 +52,22 @@
             
             <div class="assignmentOuterImages">
                 <h3>Circuit Image</h3>
-                <img id="assignmentInnerImages" src="assets/A1/circuit.png" alt="This image is of the circuit
-                where three LEDs can be operated independently." >
+                <img id="assignmentInnerImages" src="assets/A3/circuit.png" alt="This image is of the circuit
+                " >
                 <p style="font-size: 12px;">
-                    This image is of the circuit
-                    where three LEDs can be operated independently.
+                    This image is of the circuit..
                 </p>
             </div>
             
             <div id="firmware" class="assignmentOuterImages">
                 <h3>Firmware</h3>
                 <pre>
-                    <code>
-//set up once
-void setup() {
-    //initalization of pins 9, 10, & 11
-    for (int pin = 9; i < 12; pin++){
-        //sets pin to output
-        pinMode(pin, OUTPUT);
-    }
-}
+                  <code>
 
-//loop forever
-void loop() {
-    //loop through pins 9, 10, & 11
-    for (int pin = 9; pin < 12; pin++){
-        //turn on the LED
-        digitalWrite(pin, HIGH);
-        //keep the LED on for one second
-        delay(1000);
-        //turn the LED off
-        digitalWrite(pin, LOW);
-        //keep the LED off for one second
-        delay(1000);
-    }
-}
-                    </code>
-                  </pre>
+                  </code>
+                </pre>
                   <p style="font-size: 12px;">
-                    This is the code written to enable the operation of the LEDs independently.
+                    This is the code with commentary after each line.
                 </p>
             </div>
             
