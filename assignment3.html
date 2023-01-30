@@ -10,7 +10,7 @@
   </head>
   <body class="with-sidebar">
 		<div class="sidebar">
-			<h1 id="ohHai">Blink!</h1>
+			<h1 id="ohHai">Input Output!</h1>
 			<div id=""></div>
 			<video class="videos" controls autoplay muted width="100%" height="auto" name="operational circuit" >
                 <source src="assets/A3/video.mp4" type="video/mp4">
@@ -19,21 +19,27 @@
                 Summary
             </h2>
 			<p id="paragraph1">
-
+                This group of circuits first detects whether an object is close. If an object *is* 
+                close, then it determines whether to "R" run if it's dark or "H" hide (displayed) if it's light out.
+			</p>
+            <p id="paragraph1">
+                Makes sense: if it's light, hiding is best. But if it's dark?? Your predator likely has
+                evolve specialized olfactory skills. You need to run stat.
 			</p>
 
             <h2>
                 Struggles
             </h2>
 			<p class="paragraph2">
-
+                I... just wanted to use the ultrasonic wave sensor. I was a little discouraged
+                when I realized it was digital and not analog... but I made it work!
 			</p>
 
             <h2>
                 Wins
             </h2>
 			<p class="paragraph3">
-		
+                This was fun. It's a little critter! I also enjoyed the wire management.
 			</p>
 		</div>
 		
@@ -45,17 +51,39 @@
                 <h3>Schematic</h3>
                 <img id="assignmentInnerImages" src="assets/A3/schematic.png" alt="This image is a drawing (schematic) of the circuit" >
                 <p style="font-size: 12px;">
-                    This image above is a drawing (schematic) of the three LEDs attached to three pins
-                    so that each LED can be operated independently.
+                    This image above is a drawing (schematic) of the ultrasonic sensor, 
+                    the voltage divider with the phtoresistor, and the 7 segment LED.
                 </p>
             </div>
             
             <div class="assignmentOuterImages">
-                <h3>Circuit Image</h3>
-                <img id="assignmentInnerImages" src="assets/A3/circuit.png" alt="This image is of the circuit
+                <h3>Circuit Image: Ultrasonic Sensor</h3>
+                <img id="assignmentInnerImages" src="assets/A3/circuit1.png" alt="This image is of the circuit
                 " >
                 <p style="font-size: 12px;">
-                    This image is of the circuit..
+                    This image is of the circuit using the ultrasonic sensor. The ultrasonic
+                    sensor sends out a pulse through "trig" pin. The signal hits an object and bounces
+                    back. The "echo" pin detects the pulse's return. I then use calculations from <a href="https://youtu.be/ZejQOX69K5M" style="margin:0;">this site</a> to understand the logic behind the code used. 
+                </p>
+                <h3>Circuit Image: 7-Segment LED Display & Photoresistor</h3>
+                <img id="assignmentInnerImages" src="assets/A3/circuit2.png" alt="This image is of the circuit using the seven segment LED display
+                " >
+                <p style="font-size: 12px;">
+                    This image is of the circuit using the seven segment LED display & Photoresistor. I was going to
+                    use the 4, 7 segment LED displays, but WOW they use so many wires and pins! I worked really hard 
+                    on trying to keep the wires together and of similar color (white) save for that 
+                    one outlier orange one -_- Pin 3 and 8 are to GND.
+                </p>
+                <p style="font-size: 12px;">
+                    The photoresistor has variable resistance based on the amount of light in the room.
+                    by meansure the resistance (using that helpful formula!) using a voltage divider, which means
+                    I have an input reading between the two resistors. 
+                </p>
+                <h3>Circuit Image: Arial</h3>
+                <img id="assignmentInnerImages" src="assets/A3/circuit3.png" alt="This image is of the circuit
+                " >
+                <p style="font-size: 12px;">
+                    This image is of the circuit in its entirety. 
                 </p>
             </div>
             
@@ -64,6 +92,129 @@
                 <pre>
                   <code>
 
+
+//Code provided by 
+//Dejan NedelKovski 
+//https://www.youtube.com/watch?v=ZejQOX69K5M
+//modified by René Capella
+
+//assign the trigger pin that is sending the signal to pin 9
+const int trigPin = 12;
+//assign the  echo pin that is receiving the signal back to pin 10
+const int echoPin = 13;
+//travel time we will get from the sensor
+long duration;
+//distance
+int distance;
+bool close = false;
+//light sensor
+int photoPin = 11;
+//one digit seven segment 
+int segmentA = 6;
+int segmentB = 7;
+int segmentC = 8;
+int segmentE = 2;
+int segmentF = 5;
+int segmentG = 4;
+
+int outVal;
+
+void setup() {
+  //allow the trigger pin to be an output
+  pinMode(trigPin, OUTPUT);
+  //set the echo pin as an input (pmw)
+  pinMode(echoPin, INPUT);
+  //set all the segments to OUTPUT
+  pinMode(segmentA, OUTPUT);
+  pinMode(segmentB, OUTPUT);
+  pinMode(segmentC, OUTPUT);
+  pinMode(segmentE, OUTPUT);
+  pinMode(segmentF, OUTPUT);
+  pinMode(segmentG, OUTPUT);
+
+  //start the serial comms for showing results
+  Serial.begin(9600);
+}
+
+void loop() {
+  int photoResistor = analogRead(A0);
+  Serial.println(photoResistor);
+
+  /////////////
+  // how close is a thing?
+  /////////////
+
+  //make sure the trig pin is clear
+  digitalWrite(trigPin,LOW);
+  // do this for only 2 microseconds
+  delayMicroseconds(2);
+  //generate the ultrasound wave for 10 microseconds
+  digitalWrite(trigPin, HIGH);
+  //wait ten microseconds
+  delayMicroseconds(10);
+  // turn it off
+  digitalWrite(trigPin, LOW);
+
+  // set the echo pin to count from "HIGH" 
+  //until the pin hits "LOW"
+  duration = pulseIn(echoPin, HIGH);
+  //calculate the distance
+  distance = duration * 0.034/2;
+
+  /////////////
+  // is the thing REALLY close?
+  /////////////
+  //if it's less than 10cm...
+  if(distance < 10){
+    //it's close enough to read the light sensor
+    close = true;
+    //map from sensor reads to LED 0-255
+    outVal = map(photoResistor,0,1023,0,255);
+  } else {
+    //turn everything off!
+    close = false;
+    sensVal = 0;
+    outVal = 0;
+    analogWrite(segmentA, 0);
+    analogWrite(segmentE, 0);
+    analogWrite(segmentF, 0);
+    analogWrite(segmentG, 0);
+    analogWrite(segmentB, 0);
+    analogWrite(segmentC, 0);
+  }
+
+  /////////////
+  // is it dark or light?
+  /////////////
+  if (close == true){
+    if (photoResistor > 700){
+      //it's not dark
+      //better hide: display "H"
+      Serial.println("Hide!");
+      delay(1000);
+      //Turn off the segment that makes "H" "R"
+      analogWrite(segmentA, 0);
+      //Turn on all the segments for "H"
+      analogWrite(segmentE, outVal);
+      analogWrite(segmentF, outVal);
+      analogWrite(segmentG, outVal);
+      analogWrite(segmentB, outVal);
+      analogWrite(segmentC, outVal);    
+    } else if (photoResistor <= 700) {
+      //oh snap, it's dark: RUN, turn on leds for "R"
+      Serial.println(photoResistor);
+      Serial.println("Run!");
+      delay(1000);
+      //Turn on all the segments for "R"
+      analogWrite(segmentA, 255);
+      analogWrite(segmentE, 255);
+      analogWrite(segmentF, 255);
+      analogWrite(segmentG, 255);
+      analogWrite(segmentB, 255);
+      analogWrite(segmentC, 255);
+      delay(100);
+    }
+  }
                   </code>
                 </pre>
                   <p style="font-size: 12px;">
