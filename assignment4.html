@@ -72,6 +72,73 @@
                 <h3>Firmware</h3>
                 <pre>
                   <code>
+//library for the touch capacitor
+#include <CapacitiveSensor.h>
+//library for the LCD
+#include <LiquidCrystal.h>
+// Creates an LCD object. Parameters: (rs, enable, d4, d5, d6, d7) 
+LiquidCrystal lcd(11, 2, 4, 5, 6, 7); 
+//9 pin as sensor/reciever, 8 pin as sender
+CapacitiveSensor   cs_4_2 = CapacitiveSensor(9,8);
+//a grimlin character that shows up when started
+byte character[8] = {
+  B11111,
+  B10101,
+  B11111,
+  B01010,
+  B01110,
+  B11111,
+  B01110,
+  B01110
+};
+
+void setup() {
+  //Start the LCD and specify the dimensions
+  //16 width, 2 height
+  lcd.begin(16, 2);
+  //for the grimlin
+  lcd.createChar(3, character);
+  // Clears the LCD screen
+  lcd.clear();
+  // Print a message to the LCD
+  lcd.print("Capacitive Touch");
+  //cursor at 1,1
+  lcd.setCursor(1, 1);
+  //write my grimlins at the location provided!
+  lcd.write(byte(3));
+  //set the cursor
+  lcd.setCursor(5, 1);
+  //write grimlin 2
+  lcd.write(byte(3));
+  //same for grimlin 3
+  lcd.setCursor(9, 1);
+  lcd.write(byte(3));
+  //same for grimlin 4
+  lcd.setCursor(13, 1);
+  lcd.write(byte(3));
+  //pauses are nice: 2 second pause here
+  delay(2000);
+}
+
+void loop() {
+  //take the millisecond reading on start
+  long start = millis();
+  //caluclate the total time it takes to recieve the signal
+	long total1 =  cs_4_2.capacitiveSensor(30);
+  //keep the header on the screen always
+  lcd.print("Capacitive Touch");
+  delay(500);
+  //set that cursor 
+  lcd.setCursor(3, 2);
+  //print the total!
+  lcd.print(total1);
+  //noisy screens are not fun, add 2 second delay each tie
+  delay(2000);
+  //clear the screen
+  lcd.clear();
+}
+
+
 
                   </code>
                 </pre>
@@ -87,4 +154,3 @@
 	  </div>
   </body>
 </html>
-
