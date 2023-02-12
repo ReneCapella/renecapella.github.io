@@ -10,7 +10,7 @@
   </head>
   <body class="with-sidebar">
 		<div class="sidebar">
-			<h1 id="ohHai">Blink!</h1>
+			<h1 id="ohHai">Libraries!</h1>
 			<div id=""></div>
 			<video class="videos" controls autoplay muted width="100%" height="auto" name="operational circuit" >
                 <source src="assets/A4/video.mp4" type="video/mp4">
@@ -19,21 +19,26 @@
                 Summary
             </h2>
 			<p id="paragraph1">
-
+                This project includes 2 libraries: LiquidCrystal and CapactiveSensor.
+                The LCD screen prints the time taken for the sensor to recieve signal sent.
+                So when nothing is touching the touch-capacitor, the value is 0 and when a giant bag of water
+                like myself touches it, the value is in the thousands.
 			</p>
 
             <h2>
                 Struggles
             </h2>
 			<p class="paragraph2">
-
+                The LCD screen was complicated- lots of weird characters were displaying. Initially,
+                I also was getting backwards readings from the touch-capacitor. 
 			</p>
 
             <h2>
                 Wins
             </h2>
 			<p class="paragraph3">
-		
+                It working was a win. I also felt a sense of accomplishment when I solved the backwards values
+                on the touch-capacitor.
 			</p>
 		</div>
 		
@@ -55,7 +60,11 @@
                 <img id="assignmentInnerImages" src="assets/A4/circuit.png" alt="This image is of the circuit
                 " >
                 <p style="font-size: 12px;">
-                    This image is of the circuit..
+                    On the far left you can see the the touch-capacitor with 1M resistor. I chose 1M because I 
+                    wanted to activate the sensor with "complete touch" as referenced <a href="https://playground.arduino.cc/Main/CapacitiveSensor/" style="margin:0;">here</a>
+                    .In the middle
+                    is the poteniometer that adjusts the contrast of the LCD. On the far right is the LCD 
+                    where I display the touch capacitor values.
                 </p>
             </div>
             
