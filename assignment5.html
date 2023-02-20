@@ -10,7 +10,7 @@
   </head>
   <body class="with-sidebar">
 		<div class="sidebar">
-			<h1 id="ohHai">Blink!</h1>
+			<h1 id="ohHai">High Voltage!</h1>
 			<div id=""></div>
 			<video class="videos" controls autoplay muted width="100%" height="auto" name="operational circuit" >
                 <source src="assets/A5/video.mp4" type="video/mp4">
@@ -19,21 +19,21 @@
                 Summary
             </h2>
 			<p id="paragraph1">
-
+                This project included a logic load and an external power load of 12V. I used a sound sensor and LED strip.
 			</p>
 
             <h2>
                 Struggles
             </h2>
 			<p class="paragraph2">
-
+                THE NOISE ON THE SOUND SENSOR IS ABSURD
 			</p>
 
             <h2>
                 Wins
             </h2>
 			<p class="paragraph3">
-		
+                I overcame the noise with calibration and felt sort of nifty for remembering it.
 			</p>
 		</div>
 		
@@ -45,8 +45,8 @@
                 <h3>Schematic</h3>
                 <img id="assignmentInnerImages" src="assets/A5/schematic.png" alt="This image is a drawing (schematic) of the circuit" >
                 <p style="font-size: 12px;">
-                    This image above is a drawing (schematic) of the three LEDs attached to three pins
-                    so that each LED can be operated independently.
+                    This image above is a drawing (schematic) of the three transistor being controlled by logicfrom the 
+                    A1 input (sound sensor).
                 </p>
             </div>
             
@@ -55,7 +55,9 @@
                 <img id="assignmentInnerImages" src="assets/A5/circuit.png" alt="This image is of the circuit
                 " >
                 <p style="font-size: 12px;">
-                    This image is of the circuit..
+                    It's difficult to get the whole circuit in this one, because
+                    if the pieces touch, I might fry a component. I learned this the hard way.
+                    You can see the Arduino is here offering logic (if sensing sound through A1, light LED strip).
                 </p>
             </div>
             
@@ -63,7 +65,66 @@
                 <h3>Firmware</h3>
                 <pre>
                   <code>
+// created 29 Oct 2008
+// by David A Mellis
+// modified 30 Aug 2011
+// by Tom Igoe
+// modified 07 Apr 2017
+// by Zachary J. Fields
 
+// modified February 19, 2023
+// by René Capella 
+  
+// These constants won't change:
+const int sensorPin = A1;  // pin that the sensor is attached to
+const int buzzer = 3;      // pin that the LED is attached to
+
+// variables:
+int sensorValue = 0;   // the sensor value
+int sensorMin = 1023;  // minimum sensor value
+int sensorMax = 0;     // maximum sensor value
+
+
+void setup() {
+  // turn on the LED strip
+  pinMode(3, OUTPUT);
+  digitalWrite(3, HIGH);
+
+  // calibrate during the first ten seconds
+  while (millis() < 10000) {
+    sensorValue = analogRead(sensorPin);
+
+    // record the maximum sensor value
+    if (sensorValue > sensorMax) {
+      sensorMax = sensorValue;
+    }
+
+    // record the minimum sensor value
+    if (sensorValue < sensorMin) {
+      sensorMin = sensorValue;
+    }
+  }
+
+  // signal the end of the calibration period
+  digitalWrite(3, LOW);
+  Serial.println(sensorMin);
+  Serial.println(sensorMax);
+}
+
+
+void loop() {
+  // read the sensor:
+  sensorValue = analogRead(sensorPin);
+
+  // in case the sensor value is outside the range seen during calibration
+  sensorValue = constrain(sensorValue, sensorMin, sensorMax);
+
+  // apply the calibration to the sensor reading
+  sensorValue = map(sensorValue, sensorMin, sensorMax, 0, 255);
+
+  // fade the LED Strip using the calibrated value:
+  analogWrite(buzzer, sensorValue);
+}
                   </code>
                 </pre>
                   <p style="font-size: 12px;">
