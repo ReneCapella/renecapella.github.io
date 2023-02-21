@@ -19,21 +19,22 @@
                 Summary
             </h2>
 			<p id="paragraph1">
-                This project included a logic load and an external power load of 12V. I used a sound sensor and LED strip.
+                This project included a logic load and an external power load of 12V. I used ultrasound sensor and LED strip.
 			</p>
 
             <h2>
                 Struggles
             </h2>
 			<p class="paragraph2">
-                THE NOISE ON THE SOUND SENSOR IS ABSURD
+                Getting a smooth fade was difficult, and I'm also new to calculations for the LED strip.
+                I also did this assignment twice.
 			</p>
 
             <h2>
                 Wins
             </h2>
 			<p class="paragraph3">
-                I overcame the noise with calibration and felt sort of nifty for remembering it.
+                Distance detection is fun.
 			</p>
 		</div>
 		
@@ -46,7 +47,10 @@
                 <img id="assignmentInnerImages" src="assets/A5/schematic.png" alt="This image is a drawing (schematic) of the circuit" >
                 <p style="font-size: 12px;">
                     This image above is a drawing (schematic) of the three transistor being controlled by logicfrom the 
-                    A1 input (sound sensor).
+                    A1 input. The two pieces have a common ground. I also have information here
+                    about the LED current and transistor. The LED count on the box wasn't easy to determine
+                    so I used both the amperage on the box and the length of the strip. The math is all there. I got two
+                    different numbers, so I put both. Either way, the current is less than the max of the transistor.
                 </p>
             </div>
             
@@ -57,7 +61,7 @@
                 <p style="font-size: 12px;">
                     It's difficult to get the whole circuit in this one, because
                     if the pieces touch, I might fry a component. I learned this the hard way.
-                    You can see the Arduino is here offering logic (if sensing sound through A1, light LED strip).
+                    You can see the Arduino is here offering logic (if sensing an object near sensor -- A1, light LED strip).
                 </p>
             </div>
             
@@ -65,66 +69,68 @@
                 <h3>Firmware</h3>
                 <pre>
                   <code>
-// created 29 Oct 2008
-// by David A Mellis
-// modified 30 Aug 2011
-// by Tom Igoe
-// modified 07 Apr 2017
-// by Zachary J. Fields
 
-// modified February 19, 2023
-// by René Capella 
-  
-// These constants won't change:
-const int sensorPin = A1;  // pin that the sensor is attached to
-const int buzzer = 3;      // pin that the LED is attached to
+//assign the trigger pin that is sending the signal to pin 9
+const int trigPin = 7;
+//assign the  echo pin that is receiving the signal back to pin 10
+const int echoPin = 8;
+//travel time we will get from the sensor
+long duration;
+//distance
+int distance;
+bool close = false;
 
-// variables:
-int sensorValue = 0;   // the sensor value
-int sensorMin = 1023;  // minimum sensor value
-int sensorMax = 0;     // maximum sensor value
-
+int value = 0;
 
 void setup() {
-  // turn on the LED strip
-  pinMode(3, OUTPUT);
-  digitalWrite(3, HIGH);
-
-  // calibrate during the first ten seconds
-  while (millis() < 10000) {
-    sensorValue = analogRead(sensorPin);
-
-    // record the maximum sensor value
-    if (sensorValue > sensorMax) {
-      sensorMax = sensorValue;
-    }
-
-    // record the minimum sensor value
-    if (sensorValue < sensorMin) {
-      sensorMin = sensorValue;
-    }
-  }
-
-  // signal the end of the calibration period
-  digitalWrite(3, LOW);
-  Serial.println(sensorMin);
-  Serial.println(sensorMax);
+  //allow the trigger pin to be an output
+  pinMode(trigPin, OUTPUT);
+  //set the echo pin as an input (pmw)
+  pinMode(echoPin, INPUT);
+  //signal the LED Strip
+  pinMode(11, OUTPUT);
+  //start the serial comms for showing results
+  Serial.begin(9600);
 }
-
 
 void loop() {
-  // read the sensor:
-  sensorValue = analogRead(sensorPin);
+  /////////////
+  // how close is a thing?
+  /////////////
 
-  // in case the sensor value is outside the range seen during calibration
-  sensorValue = constrain(sensorValue, sensorMin, sensorMax);
+  //make sure the trig pin is clear
+  digitalWrite(trigPin,LOW);
+  // do this for only 2 microseconds
+  delayMicroseconds(2);
+  //generate the ultrasound wave for 10 microseconds
+  digitalWrite(trigPin, HIGH);
+  //wait ten microseconds
+  delayMicroseconds(10);
+  // turn it off
+  digitalWrite(trigPin, LOW);
 
-  // apply the calibration to the sensor reading
-  sensorValue = map(sensorValue, sensorMin, sensorMax, 0, 255);
+  // set the echo pin to count from "HIGH" until the pin hits "LOW"
+  duration = pulseIn(echoPin, HIGH);
+  //calculate the distance
+  distance = duration * 0.034/2;
 
-  // fade the LED Strip using the calibrated value:
-  analogWrite(buzzer, sensorValue);
+  /////////////
+  // is the thing REALLY close?
+  /////////////
+  //if it's less than 10cm...
+  if (distance < 10) {
+    // map the distance to 0-255 inversely
+    value = map(distance, 0, 10, 255, 0);
+    //write the mapped value so that the closer
+    //a thing gets, the brighter it becomes
+    analogWrite(11, value);
+  } else {
+    //otherwise. turn off
+    analogWrite(11, 0);
+    value = 0;
+  }
 }
+
                   </code>
                 </pre>
                   <p style="font-size: 12px;">
