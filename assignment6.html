@@ -10,7 +10,7 @@
   </head>
   <body class="with-sidebar">
 		<div class="sidebar">
-			<h1 id="ohHai">Blink!</h1>
+			<h1 id="ohHai">TALK TO THE WEB!</h1>
 			<div id=""></div>
 			<video class="videos" controls autoplay muted width="100%" height="auto" name="operational circuit" >
                 <source src="assets/A6/video.mp4" type="video/mp4">
@@ -19,21 +19,28 @@
                 Summary
             </h2>
 			<p id="paragraph1">
-
+                Press a key 2-5 on the keyboard which corresponds to
+                a color light on one arduino board. The LED lights for a second.
+                Then we have to press the button that matches the LED on the 
+                other breadboard. 
+                The web tells us if we're right or wrong.
 			</p>
 
             <h2>
                 Struggles
             </h2>
 			<p class="paragraph2">
-
+                The buttons. I had colored tops for them. Sometimes they worked. Sometimes the wiring got in the way.
+                Other times they just flopped out when you pressed them.
 			</p>
 
             <h2>
                 Wins
             </h2>
 			<p class="paragraph3">
-		
+                It was neat to see the interactivity of the web and 
+                the arduino. It was good practive for a video game
+                or similar.
 			</p>
 		</div>
 		
@@ -45,8 +52,7 @@
                 <h3>Schematic</h3>
                 <img id="assignmentInnerImages" src="assets/A6/schematic.png" alt="This image is a drawing (schematic) of the circuit" >
                 <p style="font-size: 12px;">
-                    This image above is a drawing (schematic) of the three LEDs attached to three pins
-                    so that each LED can be operated independently.
+                    This image above is the schematic. 
                 </p>
             </div>
             
@@ -55,7 +61,10 @@
                 <img id="assignmentInnerImages" src="assets/A6/circuit.png" alt="This image is of the circuit
                 " >
                 <p style="font-size: 12px;">
-                    This image is of the circuit..
+                    We have the arduino and two breadboards. One the top breadboard 
+                    there are 4 lights with 22Oohms resistors connected to pins 9-12. On 
+                    the bottom breadboard there are 4 buttons powered by 5V each with 
+                    10k resistors and a sensor on pins 2-5.
                 </p>
             </div>
             
@@ -63,8 +72,205 @@
                 <h3>Firmware</h3>
                 <pre>
                   <code>
+                    ///////////////////
+                    ARDUINO CODE!!!
+                    ///////////////////
 
-                  </code>
+
+                    int inByte;
+                    //setting my light pins here for ease
+                    int yellowLight = 9;
+                    int redLight = 10;
+                    int blueLight = 11;
+                    int greenLight = 12;
+                    //buttons!
+                    int yellowButton = 2;
+                    int redButton = 3;
+                    int blueButton = 4;
+                    int greenButton = 5;
+                    
+                    void setup() {
+                      //Begin Serial
+                      Serial.begin(9600);
+                      //set all LED pins to OUTPUT
+                      pinMode(OUTPUT, yellowLight);
+                      pinMode(OUTPUT, redLight);
+                      pinMode(OUTPUT, blueLight);
+                      pinMode(OUTPUT, greenLight);
+                      //set all button pins to INPUT
+                      pinMode(INPUT, yellowButton);
+                      pinMode(INPUT, redButton);
+                      pinMode(INPUT, blueButton);
+                      pinMode(INPUT, greenButton);
+                    }
+                    
+                    //let's do this!
+                    void loop() {
+                    
+                      // if some info is available from the web
+                      if (Serial.available() > 0) { 
+                        // read it and unpack
+                           inByte = Serial.read();
+                    
+                        // light the corresponding led 
+                    
+                        //if 2...light yellow
+                        if (inByte == 50){
+                          digitalWrite(9, HIGH); 
+                          delay(1000); 
+                          digitalWrite(9, LOW); 
+                        }
+                        //if 3, light red
+                        if (inByte == 51){
+                          digitalWrite(10, HIGH); 
+                          delay(1000); 
+                          digitalWrite(10, LOW);   
+                        }
+                        //if 4, light blue
+                        if (inByte == 52){
+                          digitalWrite(11, HIGH);
+                          delay(1000); 
+                          digitalWrite(11, LOW);    
+                        }
+                        //if 5, light green
+                        if (inByte == 53){
+                          digitalWrite(12, HIGH);
+                          delay(1000);  
+                          digitalWrite(12, LOW);   
+                        }
+                        
+                      }
+                      //Time to press the right corresponding button
+                      //if I press the yellow button
+                      if ( digitalRead(2) == HIGH ) {
+                        // send it
+                        Serial.println(2);
+                        //give the web some space
+                        delay(2000);
+                      }//if I press the red button...
+                      else if ( digitalRead(3) == HIGH ) {
+                        //send it along to web
+                        Serial.println(3);
+                        //give them space, no one likes to be crowded
+                        delay(2000);
+                      } //same, but if blue...
+                      else if ( digitalRead(4) == HIGH ) {
+                        Serial.println(4);
+                        delay(2000);
+                      } //ditto but green button
+                      else if ( digitalRead(5)==HIGH ) {
+                        Serial.println(5);
+                        delay(2000);
+                      }
+                    }
+
+                    ///////////////////
+                    NOT ARDUINO CODE!!!
+                    ///////////////////
+                    Pj5 CODE!!!
+                    ///////////////////
+
+                    var serial; 
+                    var portName = '/dev/tty.usbmodem14101'; 
+                    var inData;
+
+
+                    function setup() {
+                        // make a new instance of the serialport library
+                        serial = new p5.SerialPort();    
+                        // set a callback function for the 
+                        //serialport list event   
+                        serial.on('list', printList);      
+                        // callback for connecting to the server 
+                        serial.on('connected', serverConnected); 
+                        // callback for the port opening
+                        serial.on('open', portOpen);  
+                        // callback for when new data arrives      
+                        serial.on('data', serialEvent);  
+                        // callback for errors
+                        serial.on('error', serialError); 
+                        // callback for the port closing
+                        serial.on('close', portClose); 
+                        // list the serial ports
+                        serial.list();      
+                        // open a serial port            
+                        serial.open(portName);              
+                        createCanvas(1200, 800);
+                    }
+
+                    // get the list of ports:
+                    function printList(portList) {
+                        // portList is an array of serial port names
+                        for (var i = 0; i < portList.length; i++) {
+                        // Display the list the console:
+                        print(i + " " + portList[i]);
+                        }
+                    }
+
+                    function serverConnected() {
+                        print('connected to server.');
+                    }
+
+                    function portOpen() {
+                        print('the serial port opened.')
+                    }
+
+                    function serialError(err) {
+                        print('Something went wrong with the serial port. ' + err);
+                    }
+
+                    function portClose() {
+                        print('The serial port closed.');
+                    }
+
+                    function serialEvent() {
+                        //when the arduino sends in its button, check for !NaN
+                        // and if it is a number, save that as a global "inData"
+                        // then log
+                        //to the console
+                        if (serial.available()) {
+                            let maybeNumber = parseInt(serial.readLine());
+                            if (!isNaN(maybeNumber)) {
+                                inData = maybeNumber;
+                                console.log(inData);
+                            }
+                        }
+                    }
+
+
+                    function keyPressed() {
+                    //when key is pressed, clear the canvas and 
+                    //send the arduino the key
+                    clear();
+                    serial.write(key);
+                    }
+
+                    function draw() {
+                    //when the arduino button guess has arrived, see if 
+                    //it matches the key
+                    if (str(inData) == key) {
+                        //if it does, clear the canvas and write a nice message
+                        clear();
+                        //green text. I actually dislike this screen a lot.
+                        fill('#206F27');
+                        text("Well done; you did it", 200, 200);
+                        // probably should be bigger: iterations needed 100000%
+                        textSize(64);
+                    } else {
+                        //if it doesn't, clear the canvas and be encouraging
+                        clear();
+                        //background black and text white
+                        background(0);
+                        fill(255);
+                        text("Go ahead. Try a bit:", 200, 200);
+                        //make the text big
+                        textSize(64);
+
+                    }
+
+                    }
+
+                    </code>
                 </pre>
                   <p style="font-size: 12px;">
                     This is the code with commentary after each line.
