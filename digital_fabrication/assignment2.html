@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello, HCDE533</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="favicon.png">
+  </head>
+  <body class="with-sidebar">
+		<div class="sidebar">
+			<h1 id="ohHai">Laser Cutting and Modelling!</h1>
+			<div id=""></div>
+			<video class="videos" controls autoplay muted width="100%" height="auto" name="operational circuit" >
+                <source src="assets/A1/shakeShakeShake.mp4" type="video/mp4">
+            </video>
+      <h2>
+          Summary
+      </h2>
+      <p id="paragraph1">
+				This project explores how to operate a laser cutter to make models. It is a kit of 30 cardboard instances of one part that can be press-fit together and survive a gentle shaking.
+			</p>
+
+      <h2>
+          Struggles
+      </h2>
+
+			<p class="paragraph2">
+				Assembling the laser cutter, a Falcon CR-Laser, updating firmware, and learning how to interface with it using non-MacCompatible software.
+			</p>
+
+      <h2>
+          Wins
+      </h2>
+
+			<p class="paragraph2">
+				Once I figured out the workflow, it was challenging and satisfying to learn how to creating gcode files in Lightburn, transfer these to a tf/microSD, and watch models materialize.
+			</p>
+		</div>
+
+	  <div id="not-sidebar">
+		<div class="assignmentsAll" id="assignment">
+			<h3>Assignment 1</h3>
+      <h2 id="assignmentHeading1">
+        From the assignment:
+      </h2>
+
+      <p id="paragraph1">
+        Make a kit consisting of at least 30 instances of at least one unique part! The parts must have slots that press fit into the other parts in the kit! The parts must be laser cut out of cardboard! Your fit should be such that the parts do not come apart with a light shaking!
+      </p>
+      <div class="assignmentOuterImages">
+          <h3>OutCome: Survives Shaking & 2-30 piece instances!</h3>
+          <img id="assignmentInnerImages" src="assets/A1/00aaCompleteHeader.png" alt="This image is a photo of the final cardboard model on its side. It sort of resembles a flower." >
+          <p style="font-size: 12px;">
+              This image is a photo of the final cardboard model on its side. It sort of resembles a flower.
+          </p>
+
+          <h3>Source Files</h3>
+          <a href="https://github.com/ReneCapella/renecapella.github.io/blob/main/digital_fabrication/assets/A1/circles.gc">Circle gcode file</a>
+          <a href="https://github.com/ReneCapella/renecapella.github.io/blob/main/digital_fabrication/assets/A1/flower.gc">Flower gcode file</a>
+      </div>
+
+      <h2 id="assignmentHeading1">
+        Process Documentation
+      </h2>
+
+      <div class="assignmentOuterImages">
+          <h3>Conjuring the Machine</h3>
+
+          <img id="assignmentInnerImages" src="assets/A1/Assembly.png" alt="This image is shows pieces of the laser cutter all over my bedroom floor." >
+          <p style="font-size: 12px;">
+              I started from the basic of basic places: assembling the Falcon CR-Laser.
+          </p>
+          <img id="assignmentInnerImages" src="assets/A1/LearningCurve/IDidIt.png" alt="Image of an assembled CR-Laser Falcon on a short wooden table against a bedroom wall." >
+          <p style="font-size: 12px;">
+              It looked great.
+          </p>
+          <img id="assignmentInnerImages" src="assets/A1/LearningCurve/SafetyFirstLetsGo.png" alt="Image of myface with green safety goggles" >
+          <p style="font-size: 12px;">
+              I also looked great in my PPE. Let's go!.
+          </p>
+
+          <p style="font-size: 12px;">
+              It didn't work. It just moved with no laser. The instructions were really vague, but I did see something online about not needing the firmware. But given the circumstances, I looked into  firmware and drivers. I usually don't need drivers on the MacBook Pro, and I know it already has a CH34X, so I went for the firmware from the company.
+          </p>
+          <video class="videos" controls autoplay muted width="50%" height="auto" name="beep beep beep" >
+                    <source src="assets/A1/LearningCurve/ThenFirmwareGoof.mp4" type="video/mp4">
+          </video>
+
+          <p style="font-size: 12px;">
+              It didn't work, though. At first, it just moved with no laser. The instructions were really vague, but I did see something online about not needing the firmware. But given the circumstances, I looked into  firmware and drivers. I usually don't need drivers on the MacBook Pro, and I know it already has a CH34X, so I went for the firmware from the company.
+          </p>
+
+          <p style="font-size: 12px;">
+              SO! I trasferred the firmware to the microSD, put the microSD into the machine, and turned it on. Beeping. Lots of beeping. I didn't understand why until (after more online research in random forums) that the beeping was indicative of the firmware installing and it wouldn't stop until it was finished. Relieved to know I was not the only person to make this error, I power cycle to reset, try again, and let the beeping go until it finally stopped after 5 minutes.
+          </p>
+
+          <img id="assignmentInnerImages" src="assets/A1/LearningCurve/FinallyWorking.png" alt="Image a laser cutter mid-process engraving an image." >
+          <p style="font-size: 12px;">
+              Finally it is working!
+          </p>
+        </div>
+
+        <div class="assignmentOuterImages">
+            <h3>Learning How to Operate</h3>
+
+            <img id="assignmentInnerImages" src="assets/A1/LearningCurve/0afirstStepsWood.png" alt="Image of wood with burn marks" >
+            <p style="font-size: 12px;">
+                I started in Lightburn by just making some squiggles and futzing with the speed, power, and pass count. I started with 50 speed, 20% power, and 1 pass. Messing with these settings, I found I could cut through wood at 85 speed, 90% power, and 15 passes - it was overkill, and I stopped the maching.
+
+                I didn't tinker further with the wood, but I suspect I could have achieved the same result with different settings.
+            </p>
+            <img id="assignmentInnerImages" src="assets/A1/LearningCurve/0bfirstSteps.png" alt="Image of cardboard" >
+            <img id="assignmentInnerImages" src="assets/A1/LearningCurve/0firstStepsCardboard.png" alt="Image of cardboard" >
+            <p style="font-size: 12px;">
+                Moving onto cardboard, I assummed the setting would be lower because it was a less dense material. I started at 70 speed, 70% power, and 3 passes. It wasn't enough. I bumped it up to 5 passes. Still not enough. I finally cut through at 70 speed, 70% power, and 10 passes.
+
+                Once I achieved breaking through, I did not try other settings.
+            </p>
+            <img id="assignmentInnerImages" src="assets/A1/LearningCurve/1LearningLightburn.png" alt="Image of lightburn software interface with two rectangle shapes" >
+            <p style="font-size: 12px;">
+                The recommended software with the CR-Laser is Lightburn and LaserGBRL. LaserGBRL only works with Windows (unless I wanted to run a virtual machine and I did not).
+
+                Lightburn has a very intuitive GUI. I quickly made the images used for wood and cardboard cutting experiments. Now I wanted to determine how wide my gaps for press-fit needed to be. I tried 2mm and 3mm with a square to press the piece onto.
+            </p>
+            <img id="assignmentInnerImages" src="assets/A1/LearningCurve/2LearningLightburn.png" alt="Image of cardboard cutout" >
+            <p style="font-size: 12px;">
+                The setting I determed earlier cut through perfectly.
+            </p>
+            <img id="assignmentInnerImages" src="assets/A1/LearningCurve/3LearningLightburn.png" alt="Image of cardboard cutouts pressed together" >
+            <p style="font-size: 12px;">
+                ...and by fortune, the 2mm option fit snuggly. Time to start making!!
+            </p>
+        </div>
+        <div class="assignmentOuterImages">
+            <h3>Finally Starting the Assignment</h3>
+
+            <img id="assignmentInnerImages" src="assets/A1/4NextStepsCirclesLB.png" alt="LightBurn interface in the foreground with the laser cutter in the background. The lightburn screen shows an image of lots of circles" >
+            <p style="font-size: 12px;">
+                In my household, my children by me lots of legos. Recently, because I decided fake flowers that looked real was ridiculous, I started building fake flowers with the lego kits and putting them all over my house.
+
+                This inspired me to try and build a press kit for a flower. Starting simply, I started with circles to build a basic flower.
+            </p>
+
+            <img id="assignmentInnerImages" src="assets/A1/5NextStepsCirclesCutting.png" alt="Laser cutter cutting circles into cardboard" >
+            <img id="assignmentInnerImages" src="assets/A1/7PoppingOutCircles.png" alt="Laser cutter cutting circles into cardboard" >
+            <img id="assignmentInnerImages" src="assets/A1/8SnugglingCiclesTogether.png" alt="Laser cutter cutting circles into cardboard" >
+            <p style="font-size: 12px;">
+                Ran smoothly.
+
+                I popped some of the pieces out for trial, and felt really good about my exploratory pressing together-ing.
+            </p>
+            <img id="assignmentInnerImages" src="assets/A1/9Committed.png" alt="Laser cutter cutting circles into cardboard" >
+            <img id="assignmentInnerImages" src="assets/A1/11FirstFlowerForm.png" alt="Cardboard Flower made of circular cardboard pieces fit together" >
+            <p style="font-size: 12px;">
+                I was commited. I carefully put together my first flower form.
+
+                I decided I wanted more of the medium circles perpendicular to the first flower form.
+            </p>
+            <img id="assignmentInnerImages" src="assets/A1/12LetsMakeMoreStemPot.png" alt="Lightburn interface with flower-looking images" >
+            <img id="assignmentInnerImages" src="assets/A1/13PotCutting.png" alt="Laser cutter cutting out a flower and flower pot images from cardboard" >
+            <img id="assignmentInnerImages" src="assets/A1/14MoreCompleted.png" alt="Laser cutter print out out a flower and flower pot images on cardboard" >
+            <p style="font-size: 12px;">
+                I created a circular piece with a stem and a pot with flower piece to press fit into the stem.
+
+                I also cut out more circles to make 30 medium and 30 small circular bits.
+            </p>
+            <img id="assignmentInnerImages" src="assets/A1/15DogSaysThisIsNotRight.png" alt="cardboard flower dying because its stem is loosening away from the base" >
+            <p style="font-size: 12px;">
+                My dog immediately notices this flower is a failure.
+
+                I assumed the 2mm gap width would hold at any length. I was wrong, the longer the gap, the more the ends would flare.
+            </p>
+            <img id="assignmentInnerImages" src="assets/A1/16MaybeJustStem.png" alt="scope management" >
+            <p style="font-size: 12px;">
+                In a project, we have three constraints: resounces, time, and scope.
+
+                I had boundless resources. Machine + computer + software +cardboard for days.
+
+                I had limited very limited time. My laser cutter didn't arrive until Tuesday, and I needed to finish before class on Wednesday at 12p so I could attend another class before the deadline.
+
+                So scope had to be prunned. I chose to keep it at the stem. This would free up my nest day for documentation:)
+            </p>
+        </div>
+
+      <div class="assignmentOuterImages">
+          <h3>Fin!</h3>
+          <img id="assignmentInnerImages" src="assets/A1/17Summary.png" alt="image of cardboard flower and the cardboard from which the pieces were popped out of" >
+          <p style="font-size: 12px;">
+              I learned so much. Operating and understanding how to interface with these machines is my goal for this class, and I feel ramped up because of the challenges faced.
+
+              For next time: I bought a hood/casing with a fan. I had lots of ventilation and a mask, but it wasn't enough. Need more PPE. I also want more goggles for my family.
+
+              Figuring out how to start with Illustrator and transfer to lightburn would be a good workflow improvement. Because I have to work offline with this machine, I'm wondering if I can find a free software that converts SVGs to gcode/gc files the cutter will recognize.
+          </p>
+      </div>
+		</div>
+	  </div>
+  </body>
+</html>
