@@ -6,6 +6,11 @@ body {
   font-family: monospace;
 }
 
+table, td, tr{
+  border: 2px solid #fff;
+  border-collapse: collapse
+}
+
 h1, p {
   letter-spacing: 0.1em;
 }
