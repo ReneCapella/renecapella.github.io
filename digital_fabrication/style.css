@@ -8,7 +8,9 @@ body {
 
 table, td, tr{
   border: 2px solid #fff;
-  border-collapse: collapse
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100px;
 }
 
 h1, p {
