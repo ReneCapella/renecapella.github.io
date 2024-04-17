@@ -6,11 +6,15 @@ body {
   font-family: monospace;
 }
 
-table, td, tr{
-  border: 2px solid #fff;
+table, th, td {
+  border: 1px solid black;
   border-collapse: collapse;
-  table-layout: fixed;
-  width: 100%;
+}
+th, td {
+  padding: 5px;
+}
+th {
+  text-align: left;
 }
 
 h1, p {
