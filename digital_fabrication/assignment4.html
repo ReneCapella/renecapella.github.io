@@ -19,7 +19,7 @@
           Summary
       </h2>
       <p id="paragraph1">
-
+        This was a quest for the perfect cube. iteration after iteration in pursuit of best quality + dimensions to allow for ease of construction but snug fit.
 			</p>
 
       <h2>
@@ -27,7 +27,7 @@
       </h2>
 
 			<p class="paragraph2">
-
+        Super quality prints really struggled with this. I needed to raise the bed temperature to maintain adhesion which cost a lot of time in starting/stopping
 			</p>
 
       <h2>
@@ -35,23 +35,22 @@
       </h2>
 
 			<p class="paragraph2">
-
+        This felt like data collection for me. I solved holding sugar on the third iteration, but keep trying (yep, still going) different settings. I have something like 8-12 cubes in labelled bags with dimensions, notes, printer bed and nozzel temps, and quaity.
 			</p>
 		</div>
 
 	  <div id="not-sidebar">
 		<div class="assignmentsAll" id="assignment">
-			<h3>Assignment 3</h3>
+			<h3>Assignment 4</h3>
 
       <p id="paragraph1">
         <ol>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li>Model four sides and one bottom of a cube with boxjoints</li>
+          <li>3D print the model</li>
+          <li>Construct the pieces into a cube</li>
+          <li>Pour sugar to determine fit</li>
+          <li>Document all settings</li>
+          <li>Repeat Repeat Repeat</li>
         </ol>
       </p>
 
@@ -72,11 +71,55 @@
       </h2>
 
       <div class="assignmentOuterImages">
-          <h3></h3>
+          <h3>Opening Notes</h3>
 
           <!-- <img id="assignmentInnerImages" src="assets/A4/-.png" alt="" -->
           <p style="font-size: 12px;">
+            I think the process of documentation and observation was very impactful for me in this assignment, so I'm going to set you up with the foundations and guidance to do this yourself.
+          </p>
+          <p style="font-size: 12px;">
+            Also, Prof Nadya mentioned we might need to make eachother's crafted items, so I'm hoping to make this easier for someone just in case.
+          </p>
 
+          <h3>Setting up</h3>
+          <p style="font-size: 12px;">
+            For this project you'll need some software:
+            <ol>
+              <li>Rhino 8 or equivalent to open the source files</li>
+              <li>Cura or similar to create gcode</li>
+              <li>An FDM 3D printer</li>
+              <li>Filament</li>
+              <li>Optional: Bags</li>
+              <li>Optional: Sharpie</li>
+            </ol>
+
+          </p>
+          <p style="font-size: 12px;">
+            Use the source files above labelled "starting template." Open it in Rhino or equivalent software. This is a 2cm x 2cm set of 4 curves that I started with. There are no offsets or extrusions. Copy these curves, paste them nearby, and only extrude this copy. No modifactions this round - see what the starting point gets you.
+          </p>
+
+          <p style="font-size: 12px;">
+            Preseve those curves for future iterations. When your ready to print, use text in your file to note the dimensions and relevant notes beside your iteration.
+          </p>
+
+          <p style="font-size: 12px;">
+            Export these pieces to STL. Open the STL in Cura. Quality is up to you; makes process shorter to use low. Slice it!
+          </p>
+
+          <p style="font-size: 12px;">
+            Print it. I'll wait here.
+          </p>
+
+          <p style="font-size: 12px;">
+            FOR ME, this wouldn't fit together, which makes sense: there is no space in the pieces to allow for a join to occur. The sides just butt up against eachother.
+          </p>
+
+          <p style="font-size: 12px;">
+            So write down what happened. Save the loose pieces in a bag (I used a clear zip up bag). Write down on the bag or on a note in the bag the dimensions and quality of print.
+          </p>
+
+          <p style="font-size: 12px;">
+            Now get to work. Make a new copy of the curves and start to tinker. What can you adjust to give space? Once you're set, write down your dimensions, select your new pieces and "export selected" to STL, open in cura, slice it, and print!
           </p>
 
           <!-- <video class="videos" controls autoplay muted width="50%" height="auto" name="beep beep beep" >
@@ -84,10 +127,18 @@
           </video> -->
 
         <div class="assignmentOuterImages">
-            <h3></h3>
+            <h3>My results</h3>
             <!-- <img id="assignmentInnerImages" src="assets/A4/-.png" alt="" -->
             <p style="font-size: 12px;">
+              I used 'offset' in this assignment on two out of the four cubes of varying size to reduce the size and give space for fitting together. For the bottom, I used an shrinking offset that would compensate for the largest of the four sides but also create some hold with the smaller sides.
+            </p>
 
+            <p style="font-size: 12px;">
+              After 8 iterations, I went back to cube 3's offset amounts. It clicks so well with this! A 2.8mm thickness, 2 sides with a shrinking .15 offset and a bottom with .1 shrinking offset. I bump up the quality to see results.
+            </p>
+
+            <p style="font-size: 12px;">
+              I think Low-Standard results are better! It's like it has more structure - and I wonder if I could achieve this with other settings? I still think the bottom gaps can be closer, so dialing this in with minor adjustments to offsets is how I proceed - after all results are taken, I'll choose my final cube.
             </p>
 
             <!-- <video class="videos" controls autoplay muted width="50%" height="auto" name="beep beep beep" >
@@ -95,62 +146,140 @@
             </video> -->
         </div>
         <div class="assignmentOuterImages">
-            <h3>Tubes</h3>
+            <h3>I like these tables</h3>
 
-            <!-- <img id="assignmentInnerImages" src="assets/A4/-.png" alt="" -->
-            <p style="font-size: 12px;">
-
-            </p>
-
-            <p style="font-size: 12px;">
-
-            </p>
-
-            <!-- <video class="videos" controls autoplay muted width="50%" height="auto" name="beep beep beep" >
-                      <source src="assets/A4/LearningCurve/ThenFirmwareGoof.mp4" type="video/mp4">
-            </video> -->
+            <table>
+              <tr>
+                <th>Sides Offset Amt</th>
+                <th>Bottom Offset Amt</th>
+                <th>Thickness</th>
+                <th>Image</th>
+                <th>Print Quality</th>
+                <th>Holds Sugar?</th>
+                <th>Notes</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td><img src="assets/A4/table/1.png"></td>
+                <td>Low</td>
+                <td>N</td>
+                <td>Learned to use offset</td>
+              </tr>
+              <tr>
+                <td>.3</td>
+                <td>.15</td>
+                <td>2.8</td>
+                <td><img src="assets/A4/table/2.png"></td>
+                <td>Low</td>
+                <td>N</td>
+                <td>Loose, holds but delicate</td>
+              </tr>
+              <tr>
+                <td>.15</td>
+                <td>.1</td>
+                <td>0</td>
+                <td><img src="assets/A4/table/3.png"></td>
+                <td>Low</td>
+                <td>Y</td>
+                <td>Nice! Want to tighten up gaps on bottom</td>
+              </tr>
+              <tr>
+                <td>.15</td>
+                <td>.1</td>
+                <td>2.8</td>
+                <td><img src="assets/A4/table/4.png"></td>
+                <td>Low</td>
+                <td>Y</td>
+                <td>Adjusting the inner corners outward a tiny amt. See bulging, but maybe quality will fix</td>
+              </tr>
+              <tr>
+                <td>.15</td>
+                <td>.1</td>
+                <td>2.8</td>
+                <td><img src="assets/A4/table/5.png"></td>
+                <td>Super</td>
+                <td>Y</td>
+                <td>Still seeing bulging.</td>
+              </tr>
+              <tr>
+                <td>.08</td>
+                <td>.06</td>
+                <td>3</td>
+                <td><img src="assets/A4/table/6.png"></td>
+                <td>Super</td>
+                <td>Y</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.13</td>
+                <td>.09</td>
+                <td>2.8</td>
+                <td><img src="assets/A4/table/7.png"></td>
+                <td>Super</td>
+                <td>Y</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.15</td>
+                <td>.1</td>
+                <td>2.8</td>
+                <td><img src="assets/A4/table/8.png"></td>
+                <td>Standard</td>
+                <td>Y</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.15</td>
+                <td>.1</td>
+                <td>2.8</td>
+                <td><img src="assets/A4/table/9.png"></td>
+                <td>Super</td>
+                <td>N</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.15</td>
+                <td>.1</td>
+                <td>3</td>
+                <td><img src="assets/A4/table/10.png"></td>
+                <td>Dynamic</td>
+                <td>Y</td>
+                <td>Thickness was a mistake</td>
+              </tr>
+              <tr>
+                <td>.15</td>
+                <td>.08</td>
+                <td>2.8</td>
+                <td><img src="assets/A4/table/11.png"></td>
+                <td>Standard</td>
+                <td>Y</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>.15</td>
+                <td>.08</td>
+                <td>2.8</td>
+                <td><img src="assets/A4/table/12.png"></td>
+                <td>Dynamic</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
         </div>
-        <div class="assignmentOuterImages">
-            <h3></h3>
 
-            <!-- <img id="assignmentInnerImages" src="assets/A4/-.png" alt="" -->
-            <p style="font-size: 12px;">
-
-            </p>
-
-            <!-- <video class="videos" controls autoplay muted width="50%" height="auto" name="beep beep beep" >
-                      <source src="assets/A4/LearningCurve/ThenFirmwareGoof.mp4" type="video/mp4">
-            </video> -->
-        </div>
-        <div class="assignmentOuterImages">
-            <h3></h3>
-
-            <!-- <img id="assignmentInnerImages" src="assets/A4/-.png" alt="" -->
-            <p style="font-size: 12px;">
-
-            </p>
-
-            <p style="font-size: 12px;">
-
-            </p>
-
-            <!-- <video class="videos" controls autoplay muted width="50%" height="auto" name="beep beep beep" >
-                      <source src="assets/A4/LearningCurve/ThenFirmwareGoof.mp4" type="video/mp4">
-            </video> -->
-        </div>
 
       <div class="assignmentOuterImages">
           <h3>Fin!</h3>
           <!-- <img id="assignmentInnerImages" src="assets/A4/-.png" alt="" > -->
           <p style="font-size: 12px;">
-
+            THE WINNER IS.....
           </p>
           <p style="font-size: 12px;">
 
           </p>
-          <p style="font-size: 12px;">
 
-          </p>
       </div>
 		</div>
 	  </div>
