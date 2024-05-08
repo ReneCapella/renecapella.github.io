@@ -27,10 +27,10 @@
     <CutSetting type="Cut">
         <index Value="0"/>
         <name Value="C00"/>
-        <maxPower Value="100"/>
+        <maxPower Value="90"/>
         <maxPower2 Value="20"/>
-        <speed Value="3"/>
-        <numPasses Value="10"/>
+        <speed Value="5"/>
+        <numPasses Value="15"/>
         <priority Value="0"/>
     </CutSetting>
     <Shape Type="Path" CutIndex="0" VertID="12" PrimID="6">
