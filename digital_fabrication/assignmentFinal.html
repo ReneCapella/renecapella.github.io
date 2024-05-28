@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello, HCDE533</title>
+    <link rel="stylesheet" href="style.css">
+	<link rel="icon" type="image/x-icon" href="favicon.png">
+  </head>
+  <body class="with-sidebar">
+		<div class="sidebar">
+			<h1 id="ohHai">The Final!</h1>
+			<iframe src="https://giphy.com/embed/TejmLnMKgnmPInMQjV" width="100%"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/a24-jamie-lee-curtis-michelle-yeoh-everything-everywhere-all-at-once-TejmLnMKgnmPInMQjV">via GIPHY</a></p>
+      <h2>
+          Summary
+      </h2>
+      <p id="paragraph1">
+          ---
+      </p>
+      <h2>
+          Struggles
+      </h2>
+			<p class="paragraph2">
+        acrylic press fit and box joints, mold design, failure and iteration
+
+      <h2>
+          Wins
+      </h2>
+			<p class="paragraph2">
+        failure and iteration bring about learning. I learned how to design more complex box joints, I learned how to build an auxetic pattern by hand, I learned the limitations and strengths (literally) of PETG and PLA for needed flexibility, I learned how to create a mold for wax.
+			</p>
+		</div>
+
+	  <div id="not-sidebar">
+		<div class="assignmentsAll" id="assignment">
+      <a href="https://renecapella.github.io/digital_fabrication/index.html">Need to go home?</a>
+			<h3>The Final - A line of Phone Cases</h3>
+<!-- =======================================================================
+=======================================================================
+=======================================================================
+======================================================================= -->
+      <div class="assignmentOuterImages">
+
+          <h3 id="phoneItself">The Phone Itself and The Original.</h3>
+          <h4>Bill of Materials</h4>
+          <p>
+            <ul>
+              <li>Calipers</li>
+              <li>3D Printer</li>
+              <li>PLA</li>
+              <li>Wood PLA</li>
+            </ul>
+          </p>
+          <h4>Source Files</h4>
+          <a href="assets/Final/sources/phoneItselfTheOriginal.3dm">Rhino File - Phone and Case</a>
+            <a href="assets/Final/sources/phoneItself.stl">Stereo Lithograph (STL) - Phone</a>
+            <a href="assets/Final/sources/caseItself.stl">Stereo Lithograph (STL) - Phone</a>
+
+          <h4>Instructions</h4>
+          <p>
+            <ol>
+              <li>
+                The standin phone brings your custom case art to life. Print one or two or five.
+              </li>
+              <li>
+                Start by building the model of your phone. If your here because you're a LightPhone 2 user, use the CAD and STL file provided.Use the calipers!
+              </li>
+              <li>
+                If you made your own model, export as STL.
+              </li>
+              <li>
+                Set up your 3D printer.Turn it on, clean the bed, warm the nozzel, choose your filament. If any filament is in the machine, remove this and store the filament in a dry, airtight container.
+              </li>
+              <li><
+                You can use any filament. My phones range from basic PLA, HTPLA, WoodPLA, and PETG - it depends on the project. For each project on this page, I list which filament I use for the paired case and why.
+              </li>
+              <li>On your computer, import the STL file into a slicer software like Cura (free!). Choose your settings for your filament.</li>
+              <li>Slice the file, save it to external drive or computer, connect up to your 3D printer, and press print!</li>
+            </ol>
+          </p>
+<!-- =======================================================================
+=======================================================================
+=======================================================================
+======================================================================= -->
+          <h3>The Press Fit</h3>
+          <h4>Bill of Materials</h4>
+          <p>
+            <ul>
+              <li>
+                <a href="#phoneItself">The Phone Itself.</a>
+              </li>
+              <li>
+                1-3 sheets (always good to have extra) of 3mm thick plywood at least 12" by 24'
+              </li>
+              <li>
+                Laser Cutter, 10W Diode
+              </li>
+              <li>Calipers!</li>
+            </ul>
+          </p>
+          <h4>Source Files</h4>
+            <a href="assets/Final/sources/pressFitCase.3dm">CAD Rhino File</a>
+            <a href="assets/Final/sources/flattenedPhoneCase.svg">ScalableVectorGraphic (SVG)</a>
+            <a href="assets/Final/woodenPressFitCaseGCODE.lbrn2">LightBurn File</a>
+
+          <h4>Instructions</h4>
+          <p>
+            <ol>
+              <li>ALWAYS prioritize safety when using your laser cutter. Clean your laser, check for debris around the bed, make sure your glasses are on/near, check exhaust, have fire safety equiptment around</li>
+              <li>Double check for glasses, enclosure, and proper exhaust</li>
+              <li>Do a meterial test for the wood panels. We want the laser to cut through the material completely.</li>
+              <li>Use the calipers to measure the materials.</li>
+              <li>If you're modifying these instructions for your own phone, hop into the CAD file and see the progression I used. I first modeled the case, then removed cross sections (think about tolerances!), laid pieces flat, and projected to CPlane/made flat.</li>
+              <li>If you're using <a href="#phoneItself">The Phone Itself.</a>, then import the above SVG into your laser cutter software, use the settings appropriate for your machine.</li>
+              <li>Transfer your GCODE to the laser cutter by direct connection or SD, start your laser cutter, and (after putting on your glasses, starting the exhaust, and preparing your closure) press start!</li>
+              <li>Material varies. You may need to adjust and reprint: use calipers to diagnose erroneous assumptions!</li>
+            </ol>
+          </p>
+<!-- =======================================================================
+=======================================================================
+=======================================================================
+======================================================================= -->
+          <h3>The Box I - Acrylic</h3>
+          <h4>Bill of Materials</h4>
+          <p>
+            <ul>
+              <li><a href="#phoneItself">The Phone Itself.</a></li>
+              <li>A 10W Diode Laser (or better - CO2 Laser would do any color acrylic, diodes struggle with most, but should be able to handle redder hues)</li>
+              <li>5-10 sheets of preferred color</li>
+              <li>Calipers</li>
+            </ul>
+          </p>
+          <h4>Source Files</h4>
+          <p>
+            <a href="assets/Final/sources/theBoxJoint-Acrylic.3dm">CAD file</a>
+            <a href="assets/Final/sources/theBoxJoing-Acrylic.svg">SVG</a>
+            <a href="assets/Final/sources/theBoxJoint-Acrylic.ai">Adobe Illustrator</a>
+          </p>
+          <h4>Instructions</h4>
+          <p>
+            <ol>
+              <li>ALWAYS prioritize safety when using your laser cutter. Clean your laser, check for debris around the bed, make sure your glasses are on/near, check exhaust, have fire safety equiptment around</li>
+              <li>Double check #1.</li>
+              <li>If you're modifying the files for your own phone, hop into the CAD file, and follow the steps to build a good aproximation for your case.</li>
+              <li>Start out by designing with tolerance in mind. See this link for exercises to think about <a href="https://courses.ideate.cmu.edu/16-223/f2015/guide/ex/mechanism/laser-tolerance/laser-tolerance.html"></a> tolerances. I know my tolerances for acrylic are complicated because acrylic thickness varies - I like to assume a median of the thickest and thinnest measurements of my material. So if my acrylics thickest width is 3mm and the thinnest is 2.4, I aim for design for 2.7. Working with tolerances in mind, I then add .15mm to opposing sides. What this means: one panel will use 2.7 knobs. All panels attached to this will use 2.85.</li>
+              <li>Run a test. Using a little of your acrylic, make a small cube of your draft and run it. Adjust your assumptions for your next test run.</li>
+              <li>Exort your design as SVG. Depending on your methods, you may need to stop by Adobe Illustrator or Inkscape to clean up some lines. You should have no lines other than the borders of each panel.</li>
+              <li>Import your SVG into your laser cutting software, and press start!</li>
+              <li>Once you feel comfortable, increase the complexity of your design. When you're ready, (you'll know) start printing all panels.</li>
+              <li>Put together your phone case --sliding The Phone Itself. inside before sealing it up!</li>
+            </ol>
+          </p>
+<!-- =======================================================================
+=======================================================================
+=======================================================================
+======================================================================= -->
+          <h3>The Auxetic</h3>
+          <h4>Bill of Materials</h4>
+          <p>
+            <ul>
+              <li><a href="#phoneItself">The Phone Itself.</a></li>
+              <li>3D printer</li>
+              <li>Laser Cutter</li>
+              <li>Maybe: 3mm thick plywood, 12" x 12" minimum</li>
+              <li>Maybe: Acrylic sheets</li>
+              <li>Your filament of choice</li>
+            </ul>
+          </p>
+          <h4>Source Files</h4>
+          <p>
+            <a href="#">CAD</a>
+            <a href="#">STL for Top and Bottom</a>
+            <a href="#">SVG for Laser Cutting Top</a>
+          </p>
+          <h4>Instructions</h4>
+          <p>
+            <ol>
+              <li>ALWAYS prioritize safety when using your laser cutter. Clean your laser, check for debris around the bed, make sure your glasses are on/near, check exhaust, have fire safety equiptment around</li>
+              <li>There are two versions of the top for this case - a laser cut top and a 3D printed top. Choose one, lets go!</li>
+              <li>If you're modifying these designs for your phone, climb into the CAD file and follow the guidance there to create your own dimensions.</li>
+              <li>With the exported STL of the bottom, determine the settings best for your printer, slice your file into GCODE and connect it to your printer!</li>
+              <li>After the print is finished, decide if you want the top to be 3D printed or laser cut with acrylic or wood</li>
+              <li>If 3D printing, use the STL for the top listed above in your slicing software to get it to your printer and start printing!</li>
+              <li>If you're laser cutting your top, use the SVG in your choice of laser cutting software. Make sure to run your materials test to ensure you have the right settings for your laser.</li>
+              <li>ASSEMBLY: regardless of what top you have, you need to assemble it!</li>
+            </ol>
+          </p>
+<!-- =======================================================================
+=======================================================================
+=======================================================================
+======================================================================= -->
+          <h3>The Kerf</h3>
+          <h4>Bill of Materials</h4>
+          <p>
+            <ul>
+              <li><a href="#phoneItself">The Phone Itself.</a></li>
+              <li>Wood panels - plywood 3mm or more</li>
+              <li>Laser Cutter 10W Diode minimum</li>
+            </ul>
+          </p>
+          <h4>Source Files</h4>
+          <p>
+            <a href="#"></a>
+          </p>
+          <h4>Instructions</h4>
+          <p>
+            <ol>
+              <li>ALWAYS prioritize safety when using your laser cutter. Clean your laser, check for debris around the bed, make sure your glasses are on/near, check exhaust, have fire safety equiptment around</li>
+            </ol>
+          </p>
+<!-- =======================================================================
+=======================================================================
+=======================================================================
+======================================================================= -->
+          <h3>The Molded I - Wax</h3>
+          <h4>Bill of Materials</h4>
+          <p>
+            <ul>
+              <li><a href="#phoneItself">The Phone Itself.</a></li>
+              <li>Wax</li>
+              <li>3D Printer</li>
+              <li>Filament of Choice</li>
+            </ul>
+          </p>
+          <h4>Source Files</h4>
+
+            <a href="assets/Final/sources/TheMoldedI.3dm">CAD File</a>
+            <a href="assets/Final/sources/TheMoldedI-Top.stl">STL - Top</a>
+            <a href="assets/Final/sources/TheMoldedI-Bottom.stl">STL - Bottom</a>
+
+          <h4>Instructions</h4>
+          <p>
+            <ol>
+              <li></li>
+            </ol>
+          </p>
+<!-- =======================================================================
+=======================================================================
+=======================================================================
+======================================================================= -->
+          <h3>The Molded II</h3>
+          <h4>Bill of Materials</h4>
+          <p>
+            <ul>
+              <li><a href="#phoneItself">The Phone Itself.</a></li>
+              <li>Hydrostone, 1-2lbs</li>
+              <li>Oomoo 30</li>
+              <li>3d Printer</li>
+              <li>Filament of choice</li>
+            </ul>
+          </p>
+          <h4>Source Files</h4>
+          <p>
+            <a href="#"></a>
+          </p>
+          <h4>Instructions</h4>
+          <p>
+            <ol>
+              <li></li>
+            </ol>
+          </p>
+
+
+          <a href="https://docs.google.com/presentation/d/1GGv3knBpTdglwKSFjcuwj4dqS55GRDut5oPpPkq1XlI/edit?usp=sharing">Slide Deck</a>
+      </div>
+
+      <div class="assignmentOuterImages">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal.png" alt="">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal1.png" alt="">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/BERMnbZJVh8?si=6C0Ko2yl3lAIyeMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal2.png" alt="">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal3.png" alt="">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal4.png" alt="">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal5.png" alt="">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal6.png" alt="">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal7.png" alt="">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal8.png" alt="">
+          <img id="assignmentInnerImages" src="assets/A7/DigFabFinalProposal9.png" alt="">
+
+      </div>
+
+		</div>
+	  </div>
+  </body>
+</html>
